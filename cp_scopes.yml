@@ -1,0 +1,36 @@
+---
+- name: move subdomain files to remotes
+  hosts: subfinders
+  remote_user: root
+
+  tasks: 
+  - name: Copy scope subdomain
+    ansible.builtin.copy:
+      src: scope.txt
+      dest: scope.txt
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+    
+    ansible.builtin.copy:
+      src: out_of_scope_subdomains.txt
+      dest: out_of_scope_subdomains.txt
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+
+
+- name: move out of scope directory files to remotes
+  hosts: directoryfinders
+  remote_user: root
+
+  tasks: 
+  - name: Copy out of scope directories
+    
+    ansible.builtin.copy:
+      src: out_of_scope_directories.txt
+      dest: out_of_scope_directories.txt
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+      

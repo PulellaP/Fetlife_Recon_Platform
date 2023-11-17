@@ -1,0 +1,5 @@
+status.fetlife.com
+mail.fetlife.com
+n2.fetlife.com
+com.bitlove.fetlife
+co.bitlove.opensource.FetLife

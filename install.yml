@@ -1,0 +1,44 @@
+---
+- name: update and install nessasary software subfinder
+  hosts: subfinders
+  remote_user: root
+
+  tasks: 
+  - name: update and upgrade
+    ansible.builtin.apt:
+      pkg: unzip
+      update_cache: yes
+      
+
+  - name: install amass
+    ansible.builtin.shell: wget https://github.com/owasp-amass/amass/releases/download/v3.22.2/amass_linux_i386.zip && unzip amass_linux_i386.zip && mv amass_linux_i386/amass /bin
+    async: 45
+    poll: 0
+
+    
+- name: update and install nessasary software dirfinders
+  hosts: directoryfinders
+  remote_user: root
+
+  tasks: 
+  - name: update and upgrade
+    ansible.builtin.apt:
+      pkg: unzip
+      update_cache: yes
+
+  - name: grab directory wordlist ruby-on-rails-overdose.txt
+    ansible.builtin.shell: wget https://gist.githubusercontent.com/scumdestroy/1f2bb7e2f5b80088cc934725bed7446d/raw/c2643ff64a6cd3a4af59375cb5b0239484cb62d2/ruby-on-rails-overdose.txt
+
+  - name: install meg
+    ansible.builtin.shell: wget https://github.com/tomnomnom/meg/releases/download/v0.3.0/meg-linux-386-0.3.0.tgz && tar -xzvf meg-linux-386-0.3.0.tgz && mv meg /bin
+    
+- name: update and install nessasary software portscanners
+  hosts: portscanners
+  remote_user: root
+
+  tasks: 
+  - name: update and upgrade
+    ansible.builtin.apt:
+      pkg: nmap
+      update_cache: yes
+      

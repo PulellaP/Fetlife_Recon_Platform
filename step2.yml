@@ -1,0 +1,29 @@
+---
+- name: gather inital ips into file
+  hosts: localhost
+
+  tasks:
+    - name: run the command to make the file
+      ansible.builtin.shell: cat recon/subdomain/amass_nobrute_out.txt | cut -d " " -f 2 | tr , '\n' | awk '!seen[$0]++' >> initial_ips.txt
+
+- name: first portscan
+  hosts: portscanners[0]
+  remote_user: root
+
+  tasks: 
+    - name: copy initial ipadress file to portscanner machiene
+      ansible.builtin.copy: 
+        src: initial_ips.txt
+        dest: initial_ips.txt
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+
+    - name: run nmap scan
+      ansible.builtin.shell: nmap -O -sV -F --open -T2 -iL initial_ips.txt -oN nmap_output.txt
+      
+    - name: Fetch output file if async task completed successfully
+      ansible.builtin.fetch:
+      src: nmap_output.txt
+      dest: /recon/nmap_output.txt
+

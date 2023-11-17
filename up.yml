@@ -1,0 +1,74 @@
+---
+- name: up
+  hosts: localhost
+
+  tasks:
+  - name: create subdomainfinder1
+    linode_v4:
+     label: subdomainfinder1
+     type: g6-nanode-1
+     region: us-east
+     image: linode/debian11
+     root_pass: UBVisjdnd1235
+     authorized_keys: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNIBcXFyeB8/CIMQIoKqjryiP6T8ieh9kn/ePheQJ2rlaLqYFYhnybFujhW5rZNsi6AhZLaHydVJFK311XH9tXb3Qjp9I6DXt89Gx9mgRGp1GxB+eyRsU44onZ32Te+7hf92cTIozlmip/65Lx5roU/EbBIuXvxBfTxQ8uHQDYudUCfAIqWtYW9Mt6PLX47jWCf2PftMbVX1G+YHSJcCReqTKJBP+rny5E54ejKusMdBNdF8pV9L6AiYbx0KkNITF6G4rxs1/M9Kr4E8aijSg20oaQPoMAVJJ8OTnTyG90ZIUNdPLn4MWY+lzsaXR8vi9LP6BCOsYjbNixkipT03x58sOYbqP9AqGDurM3GnAffJ3u+B7cGiKcy2FGm9q4bp/JDi+SUiwvulUBNWCgDJln8ehBdnphgnHiTOV3/PBTt2fYpRe2tvJHhlsPFXXekNNSw1R633Fp3b8pHLzAhmVpeUJnXSjtTlwVQN3enU1IVzYddtyktLeYPG2p4bCJI98= hcacker@parrot"
+     access_token: f8be8f8f16fc249b07828cee7b0d93bd919b7ed6bc6be71bdfb13a9fdbfd0ee6
+     state: present
+    
+  - name: create subdomainfinder2
+    linode_v4:
+     label: subdomainfinder2
+     type: g6-nanode-1
+     region: us-east
+     image: linode/debian11
+     root_pass: UBVisjdnd1235
+     authorized_keys: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNIBcXFyeB8/CIMQIoKqjryiP6T8ieh9kn/ePheQJ2rlaLqYFYhnybFujhW5rZNsi6AhZLaHydVJFK311XH9tXb3Qjp9I6DXt89Gx9mgRGp1GxB+eyRsU44onZ32Te+7hf92cTIozlmip/65Lx5roU/EbBIuXvxBfTxQ8uHQDYudUCfAIqWtYW9Mt6PLX47jWCf2PftMbVX1G+YHSJcCReqTKJBP+rny5E54ejKusMdBNdF8pV9L6AiYbx0KkNITF6G4rxs1/M9Kr4E8aijSg20oaQPoMAVJJ8OTnTyG90ZIUNdPLn4MWY+lzsaXR8vi9LP6BCOsYjbNixkipT03x58sOYbqP9AqGDurM3GnAffJ3u+B7cGiKcy2FGm9q4bp/JDi+SUiwvulUBNWCgDJln8ehBdnphgnHiTOV3/PBTt2fYpRe2tvJHhlsPFXXekNNSw1R633Fp3b8pHLzAhmVpeUJnXSjtTlwVQN3enU1IVzYddtyktLeYPG2p4bCJI98= hcacker@parrot"
+     access_token: f8be8f8f16fc249b07828cee7b0d93bd919b7ed6bc6be71bdfb13a9fdbfd0ee6
+     state: present
+     
+  
+  - name: create dirfinder
+    linode_v4:
+     label: dirfinder
+     type: g6-nanode-1
+     region: us-east
+     image: linode/debian11
+     root_pass: UBVisjdnd1235
+     authorized_keys: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNIBcXFyeB8/CIMQIoKqjryiP6T8ieh9kn/ePheQJ2rlaLqYFYhnybFujhW5rZNsi6AhZLaHydVJFK311XH9tXb3Qjp9I6DXt89Gx9mgRGp1GxB+eyRsU44onZ32Te+7hf92cTIozlmip/65Lx5roU/EbBIuXvxBfTxQ8uHQDYudUCfAIqWtYW9Mt6PLX47jWCf2PftMbVX1G+YHSJcCReqTKJBP+rny5E54ejKusMdBNdF8pV9L6AiYbx0KkNITF6G4rxs1/M9Kr4E8aijSg20oaQPoMAVJJ8OTnTyG90ZIUNdPLn4MWY+lzsaXR8vi9LP6BCOsYjbNixkipT03x58sOYbqP9AqGDurM3GnAffJ3u+B7cGiKcy2FGm9q4bp/JDi+SUiwvulUBNWCgDJln8ehBdnphgnHiTOV3/PBTt2fYpRe2tvJHhlsPFXXekNNSw1R633Fp3b8pHLzAhmVpeUJnXSjtTlwVQN3enU1IVzYddtyktLeYPG2p4bCJI98= hcacker@parrot"
+     access_token: f8be8f8f16fc249b07828cee7b0d93bd919b7ed6bc6be71bdfb13a9fdbfd0ee6
+     state: present
+  
+  - name: create portscanner1
+    linode_v4:
+     label: portscanner1
+     type: g6-nanode-1
+     region: us-west
+     image: linode/debian11
+     root_pass: UBVisjdnd1235
+     authorized_keys: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNIBcXFyeB8/CIMQIoKqjryiP6T8ieh9kn/ePheQJ2rlaLqYFYhnybFujhW5rZNsi6AhZLaHydVJFK311XH9tXb3Qjp9I6DXt89Gx9mgRGp1GxB+eyRsU44onZ32Te+7hf92cTIozlmip/65Lx5roU/EbBIuXvxBfTxQ8uHQDYudUCfAIqWtYW9Mt6PLX47jWCf2PftMbVX1G+YHSJcCReqTKJBP+rny5E54ejKusMdBNdF8pV9L6AiYbx0KkNITF6G4rxs1/M9Kr4E8aijSg20oaQPoMAVJJ8OTnTyG90ZIUNdPLn4MWY+lzsaXR8vi9LP6BCOsYjbNixkipT03x58sOYbqP9AqGDurM3GnAffJ3u+B7cGiKcy2FGm9q4bp/JDi+SUiwvulUBNWCgDJln8ehBdnphgnHiTOV3/PBTt2fYpRe2tvJHhlsPFXXekNNSw1R633Fp3b8pHLzAhmVpeUJnXSjtTlwVQN3enU1IVzYddtyktLeYPG2p4bCJI98= hcacker@parrot"
+     access_token: f8be8f8f16fc249b07828cee7b0d93bd919b7ed6bc6be71bdfb13a9fdbfd0ee6
+     state: present
+
+  - name: create portscanner2
+    linode_v4:
+     label: portscanner2
+     type: g6-nanode-1
+     region: us-west
+     image: linode/debian11
+     root_pass: UBVisjdnd1235
+     authorized_keys: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNIBcXFyeB8/CIMQIoKqjryiP6T8ieh9kn/ePheQJ2rlaLqYFYhnybFujhW5rZNsi6AhZLaHydVJFK311XH9tXb3Qjp9I6DXt89Gx9mgRGp1GxB+eyRsU44onZ32Te+7hf92cTIozlmip/65Lx5roU/EbBIuXvxBfTxQ8uHQDYudUCfAIqWtYW9Mt6PLX47jWCf2PftMbVX1G+YHSJcCReqTKJBP+rny5E54ejKusMdBNdF8pV9L6AiYbx0KkNITF6G4rxs1/M9Kr4E8aijSg20oaQPoMAVJJ8OTnTyG90ZIUNdPLn4MWY+lzsaXR8vi9LP6BCOsYjbNixkipT03x58sOYbqP9AqGDurM3GnAffJ3u+B7cGiKcy2FGm9q4bp/JDi+SUiwvulUBNWCgDJln8ehBdnphgnHiTOV3/PBTt2fYpRe2tvJHhlsPFXXekNNSw1R633Fp3b8pHLzAhmVpeUJnXSjtTlwVQN3enU1IVzYddtyktLeYPG2p4bCJI98= hcacker@parrot"
+     access_token: f8be8f8f16fc249b07828cee7b0d93bd919b7ed6bc6be71bdfb13a9fdbfd0ee6
+     state: present
+  
+  - name: create portscanner3
+    linode_v4:
+     label: portscanner3
+     type: g6-nanode-1
+     region: us-west
+     image: linode/debian11
+     root_pass: UBVisjdnd1235
+     authorized_keys: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNIBcXFyeB8/CIMQIoKqjryiP6T8ieh9kn/ePheQJ2rlaLqYFYhnybFujhW5rZNsi6AhZLaHydVJFK311XH9tXb3Qjp9I6DXt89Gx9mgRGp1GxB+eyRsU44onZ32Te+7hf92cTIozlmip/65Lx5roU/EbBIuXvxBfTxQ8uHQDYudUCfAIqWtYW9Mt6PLX47jWCf2PftMbVX1G+YHSJcCReqTKJBP+rny5E54ejKusMdBNdF8pV9L6AiYbx0KkNITF6G4rxs1/M9Kr4E8aijSg20oaQPoMAVJJ8OTnTyG90ZIUNdPLn4MWY+lzsaXR8vi9LP6BCOsYjbNixkipT03x58sOYbqP9AqGDurM3GnAffJ3u+B7cGiKcy2FGm9q4bp/JDi+SUiwvulUBNWCgDJln8ehBdnphgnHiTOV3/PBTt2fYpRe2tvJHhlsPFXXekNNSw1R633Fp3b8pHLzAhmVpeUJnXSjtTlwVQN3enU1IVzYddtyktLeYPG2p4bCJI98= hcacker@parrot"
+     access_token: f8be8f8f16fc249b07828cee7b0d93bd919b7ed6bc6be71bdfb13a9fdbfd0ee6
+     state: present
+
+  - name: run the add inventory script
+    ansible.builtin.shell: ./AnsibleInvAdd.sh

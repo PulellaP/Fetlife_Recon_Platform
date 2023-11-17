@@ -1,0 +1,22 @@
+open source intelligence sugests that fetlife is probably running a ruby on rails monolith also with vue.js typescript for frontend and some critical infrastructure is built with Rust
+More details about our tech stack:
+
+    Testing is done with RSpec & Capybara
+    Continuous integration and deployment are done with CircleCI
+    MySQL and PostgreSQL for our main databases
+    ScyllaDB for our activity feeds
+    Redis for session storage, queue management, and caching
+    ElasticSearch for full-text search
+    DevOps using Containers orchestrated with Kubernetes and Helm
+    Service and performance monitoring is done with DataDog and NewRelic
+
+Here are some past projects we've worked on that might help you get a better idea of what it means to work as a Rails Engineer at FetLife:
+
+    Implemented a profile verification system from the ground up using government ID and/or pictures portraying a certain gesture
+    Added discussion pre-moderation for groups
+    Added support for installing FetLife as a Progressive Web App
+    Improved the efficiency of our Activity Feed Deliveries by splitting longer feed event deliveries into smaller async jobs and prioritizing delivery to more recently active members
+    Introduced the possibility of tagging other members in pictures, videos, and writings
+    Added powerful filtering to our on-site reporting system using ElasticSearch
+    Improved location privacy for all our members by introducing granular location privacy settings
+    Integrate Machine Learning solutions to detect age or potentially illegal content

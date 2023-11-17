@@ -1,0 +1,37 @@
+---
+- name: scan prepare for subdomain scans
+  hosts: subfinders
+  remote_user: root
+
+  tasks: 
+  - name: push out of scope domains to scanners
+    ansible.builtin.copy:
+      src: out_of_scope_subdomains.txt
+      dest: out_of_scope_subdomains.txt
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+
+  - name: push subdomain wordlist to scanners
+    ansible.builtin.copy:
+      src: subdomain_wordlist.txt
+      dest: subdomain_wordlist.txt
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+
+  - name: get dns resolvers list
+    ansible.builtin.shell: wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt
+
+- name: no brute scan
+  hosts: subfinders[0]
+  remote_user: root
+
+  tasks:
+  - name: scan root domain for subdomains without bruteforcing
+    ansible.builtin.shell: amass enum -exclude "Brute Forcing" -ip -timeout 10 -rf resolvers.txt -blf out_of_scope_subdomains.txt -o amass_nobrute_out.txt -d fetlife.com 
+  
+  - name: fetch output file  
+    ansible.builtin.fetch:
+      src: amass_nobrute_out.txt
+      dest: recon/subdomain/amass_nobrute_out.txt
